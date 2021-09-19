@@ -1,7 +1,6 @@
 venv/
 .idea/
 __pycache__/
-*.ini
 .pytest_cache/
 
 # Django stuff:
