@@ -1,8 +1,8 @@
 venv/
 .idea/
 __pycache__/
-*.ini
 .pytest_cache/
+.mypy_cache/
 
 # Django stuff:
 db.sqlite3

@@ -12,6 +12,9 @@ Markdown = "^3.3.4"
 django-filter = "^2.4.0"
 
 [tool.poetry.dev-dependencies]
+pytest-django = "^4.4.0"
+flake8 = "^3.9.2"
+mypy = "^0.910"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
