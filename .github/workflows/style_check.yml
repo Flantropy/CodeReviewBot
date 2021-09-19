@@ -1,21 +1,13 @@
 name: Basic style checks
 
-on:
-  push:
+on [push, pull_request]:
     branches: [master, dev]
-  pull_request:
-    branches: [master, dev]
+
 
 
 jobs:
   ci:
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: [3.6, 3.7]
-        poetry-version: [0.1.0]
-        os: [ubuntu-18.04, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -24,6 +16,6 @@ jobs:
       - name: Run Image
         uses: abatilo/actions-poetry@v2.0.0
         with:
-          poetry-version: ${{ matrix.poetry-version }}
+          poetry-version: 1.1.8
       - name: View poetry --help
         run: poetry --help
