@@ -21,8 +21,6 @@ jobs:
           poetry-version: 1.1.8
       - name: Install dependencies
         run: poetry install
-      - name: List dirs
-        run: ls
       - name: mypy
         run: poetry run mypy CodeReviewBot
       - name: flake8
