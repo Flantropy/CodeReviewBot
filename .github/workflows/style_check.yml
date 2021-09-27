@@ -21,6 +21,10 @@ jobs:
           poetry-version: 1.1.8
       - name: Install dependencies
         run: poetry install
+      - name: Setup DB
+        run: |
+          poetry run CodeReviewBot/manage.py makemigrations
+          poetry run CodeReviewBot/manage.py migrate
       - name: pytest
         run: poetry run pytest CodeReviewBot
       - name: mypy
