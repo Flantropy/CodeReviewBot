@@ -1,5 +1,3 @@
-import logging
-
 import pytest
 
 
@@ -15,6 +13,4 @@ def bar():
 
 @pytest.fixture
 def baz():
-    logging.info('baz setup')
     yield 3
-    logging.info('baz teardown')

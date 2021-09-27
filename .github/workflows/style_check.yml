@@ -21,7 +21,10 @@ jobs:
           poetry-version: 1.1.8
       - name: Install dependencies
         run: poetry install
+      - name: pytest
+        run: poetry run pytest CodeReviewBot
       - name: mypy
         run: poetry run mypy CodeReviewBot
       - name: flake8
-        run: poetry run flake8
+        run: poetry run flake8 CodeReviewBot
+

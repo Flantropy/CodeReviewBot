@@ -4,14 +4,13 @@ import pytest
 
 
 def test_f_one(foo):
-    logging.warning('a warning')
     x = foo
     assert x == 1
 
 
 def test_b_one(bar):
-    logging.error('an error')
-    assert True
+    x = bar
+    assert x == 2
 
 
 def test_z_one(baz):
