@@ -23,10 +23,13 @@ jobs:
         run: poetry install
       - name: Setup DB
         run: |
-          cd CodeReviewBot
+          ls
+          cd CodeReviewBot/
+          ls
           poetry run manage.py makemigrations
           poetry run manage.py migrate
           cd ..
+          ls
       - name: pytest
         run: poetry run pytest CodeReviewBot
       - name: mypy
