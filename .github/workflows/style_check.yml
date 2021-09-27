@@ -26,10 +26,10 @@ jobs:
       - name: flake8
         run: poetry run flake8 CodeReviewBot
       - name: Run migrations
-        working-directory: ./CodeReviewBot
+        working-directory: CodeReviewBot
         run: |
-          poetry run manage.py makemigrations
-          poetry run manage.py migrate
+          python manage.py makemigrations
+          python manage.py migrate
       - name: pytest
         run: poetry run pytest CodeReviewBot
 
