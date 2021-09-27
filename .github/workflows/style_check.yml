@@ -28,8 +28,8 @@ jobs:
       - name: Run migrations
         working-directory: CodeReviewBot
         run: |
-          python manage.py makemigrations
-          python manage.py migrate
+          poetry run manage.py makemigrations
+          poetry run manage.py migrate
       - name: pytest
         run: poetry run pytest CodeReviewBot
 
