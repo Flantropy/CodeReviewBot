@@ -1,4 +1,4 @@
-name: Basic style checks
+name: CI
 
 on:
   push:
@@ -21,19 +21,15 @@ jobs:
           poetry-version: 1.1.8
       - name: Install dependencies
         run: poetry install
-      - name: Setup DB
-        run: |
-          ls
-          cd CodeReviewBot/
-          ls
-          poetry run manage.py makemigrations
-          poetry run manage.py migrate
-          cd ..
-          ls
-      - name: pytest
-        run: poetry run pytest CodeReviewBot
       - name: mypy
         run: poetry run mypy CodeReviewBot
       - name: flake8
         run: poetry run flake8 CodeReviewBot
+      - name: Run migrations
+        working-directory: ./CodeReviewBot
+        run: |
+          poetry run manage.py makemigrations
+          poetry run manage.py migrate
+      - name: pytest
+        run: poetry run pytest CodeReviewBot
 
