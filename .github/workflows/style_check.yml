@@ -8,7 +8,7 @@ on:
 
 
 jobs:
-  ci:
+  CI:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,15 +21,13 @@ jobs:
           poetry-version: 1.1.8
       - name: Install dependencies
         run: poetry install
-      - name: mypy
+      - name: MyPy
         run: poetry run mypy CodeReviewBot
-      - name: flake8
+      - name: Flake8
         run: poetry run flake8 CodeReviewBot
-      - name: Run migrations
-        working-directory: CodeReviewBot
+      - name: Migrations
         run: |
-          poetry run manage.py makemigrations
-          poetry run manage.py migrate
-      - name: pytest
-        run: poetry run pytest CodeReviewBot
-
+          poetry run python CodeReviewBot/manage.py makemigrations
+          poetry run python CodeReviewBot/manage.py migrate
+      - name: Tests
+        run: poetry run pytest CodeReviewBot/
